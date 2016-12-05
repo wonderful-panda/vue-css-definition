@@ -1,0 +1,29 @@
+/*
+ * TypeScript definition of CSS properties
+ * MIT License
+ *
+ * Generated from source of vscode-css-languageservice (MIT License / Copyright 2016, Microsoft)
+ *   https://github.com/Microsoft/vscode-css-languageservice
+ */
+declare module "vue-css-definition" {
+    export type CssWideValue = "initial" | "inherit" | "unset";
+
+    export type KnownColor = (
+        <%- colors.map(c => `"${c}"`).join("\n      | ") %>);
+
+    export type Position = (
+        <%- positions.map(c => `"${c}"`).join("\n      | ") %>);
+
+    export type LineStyle = (
+        <%- lineStyle.map(c => `"${c}"`).join("\n      | ") %>);
+
+    export type TransitionTimingFunction = (
+        <%- transitionTiming.map(c => `"${c}"`).join("\n      | ") %>);
+
+    export interface CssProperties {
+<% props.forEach(prop => { -%>
+        <%- prop.name %>?: <%- prop.typeString %> | CssWideValue;
+<% }) -%>
+    }
+}
+

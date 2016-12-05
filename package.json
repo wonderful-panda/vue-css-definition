@@ -1,0 +1,21 @@
+{
+  "name": "vue-css-definition",
+  "version": "0.0.1",
+  "description": "TypeScript definition for vue css properties object",
+  "author": "Iwata Hidetaka <iwata0303@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "node src/generate.js",
+    "test": "tsc test/test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wondeful-panda/vue-css-definition"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ejs": "^2.5.3",
+    "typescript": "^2.0.10",
+    "vscode-css-languageservice": "^1.1.0"
+  }
+}
