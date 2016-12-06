@@ -1,6 +1,6 @@
 {
   "name": "vue-css-definition",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "TypeScript definition for vue css properties object",
   "author": "Iwata Hidetaka <iwata0303@gmail.com>",
   "main": "index.js",
