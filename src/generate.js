@@ -11,10 +11,10 @@ const lineStyle = Object.getOwnPropertyNames(langFacts.lineStyleKeywords);
 const transitionTiming = Object.getOwnPropertyNames(langFacts.transitionTimingFunctions).filter(name => !name.match(/\(.+\)/));
 
 const typeMap = {
-    "color": ["KnownColor", "string"],
+    "color": ["KnownColor", "{}"],
     "position": ["Position"],
     "line-style": ["LineStyle"],
-    "timing-function": ["TransitionTimingFunction", "string"],
+    "timing-function": ["TransitionTimingFunction", "{}"],
     "number": ["number"]
 }
 
@@ -40,17 +40,17 @@ function getTypes(prop) {
     if (prop.values) {
         prop.values.filter(v => v.name[0] !== "-").forEach(v => types.push(`"${escape(v.name)}"`));
         if (prop.values.findIndex(v => v.name[0] === "-" || v.name.indexOf("(") >= 0) >= 0) {
-            types.push("string");
+            types.push("{}");
         }
     }
     const r = prop.restriction.split(", ").filter(name => name != "enum");
     if (r.length === 0) {
-        if (types.indexOf("string") < 0) {
-            types.push("string");
+        if (types.indexOf("{}") < 0) {
+            types.push("{}");
         }
     }
     else {
-        (r.length === 1 && typeMap[r[0]] ? typeMap[r[0]] : ["string"]).forEach(t => {
+        (r.length === 1 && typeMap[r[0]] ? typeMap[r[0]] : ["{}"]).forEach(t => {
             if (types.indexOf(t) < 0) {
                 types.push(t);
             }
